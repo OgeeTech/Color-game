@@ -15,6 +15,7 @@ export default function App() {
   const [colorOptions, setColorOptions] = useState([]);
   const [score, setScore] = useState(0);
   const [status, setStatus] = useState("");
+  const [statusColor, setStatusColor] = useState("black");
 
   useEffect(() => {
     startNewGame(true);
@@ -29,6 +30,7 @@ export default function App() {
     setTargetColor(target);
     setColorOptions(shades.sort(() => Math.random() - 0.5));
     setStatus("");
+    setStatusColor("black");
     if (resetScore) setScore(0);
   };
 
@@ -36,8 +38,10 @@ export default function App() {
     if (color === targetColor) {
       setScore(score + 1);
       setStatus("Correct! 🎉");
+      setStatusColor("#28a745");
     } else {
       setStatus("Wrong! Try again. ❌");
+      setStatusColor("#dc3545");
     }
     setTimeout(() => startNewGame(false), 1000);
   };
@@ -61,7 +65,11 @@ export default function App() {
           ></button>
         ))}
       </div>
-      <p data-testid="gameStatus" className="game-status">
+      <p
+        data-testid="gameStatus"
+        className="game-status"
+        style={{ color: statusColor }}
+      >
         {status}
       </p>
       <p data-testid="score" className="score">

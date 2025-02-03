@@ -1,28 +1,43 @@
-.game-container {
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Soft pastel blue */
+  color: #333; /* Darker text for better contrast */
   text-align: center;
-  font-family: Arial, sans-serif;
   padding: 20px;
-  background-color: #f4f4f4;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 22px;
+}
+.game-container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 400px;
 }
 
 .color-box {
-  width: 150px;
-  height: 150px;
+    width: 120px;
+  height: 120px;
+  margin: 15px auto;
   border-radius: 10px;
-  margin: 20px 0;
-  border: 3px solid #333;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .color-options {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  justify-content: center;
+  margin: 20px 0;
 }
 
 .color-button {
